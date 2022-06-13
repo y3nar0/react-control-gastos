@@ -8,8 +8,9 @@ import IconoNuevoGasto from './img/nuevo-gasto.svg'
 function App() {
 
   const LS = Number(localStorage.getItem('presupuesto')) ?? 0
+  const LSGastos = JSON.parse(localStorage.getItem('gastos')) ?? []
 
-  const [gastos, setGastos] = useState([])
+  const [gastos, setGastos] = useState(LSGastos)
   
   const [presupuesto, setPresupuesto] = useState(LS)
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false)
@@ -32,6 +33,11 @@ function App() {
   useEffect(() => {
     localStorage.setItem('presupuesto', presupuesto ?? 0)
   }, [presupuesto])
+
+  useEffect(() => {
+    localStorage.setItem('gastos', JSON.stringify(gastos) ?? [])
+  }, [gastos])
+  
 
   useEffect(() => {
     const presupuestoLS = LS
