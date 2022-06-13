@@ -38,7 +38,7 @@ function App() {
     }, 500);
   }
 
-  const guardarGato = gasto => {
+  const guardarGasto = gasto => {
     gasto.id = generarId()
     gasto.fecha = Date.now()
     setGastos([...gastos, gasto])
@@ -84,7 +84,7 @@ function App() {
                   setModal={setModal} 
                   animarModal={animarModal} 
                   setAnimarModal={setAnimarModal} 
-                  guardarGato={guardarGato} 
+                  guardarGasto={guardarGasto} 
                   gastoEditar={gastoEditar}
                 />
       }

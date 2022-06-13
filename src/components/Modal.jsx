@@ -6,7 +6,7 @@ const Modal = ({
     setModal, 
     animarModal, 
     setAnimarModal, 
-    guardarGato, 
+    guardarGasto, 
     gastoEditar 
 }) => {
 
@@ -22,7 +22,7 @@ const Modal = ({
             setCantidad(gastoEditar.cantidad)
             setCategoria(gastoEditar.categoria)
           }
-    }, [third])
+    }, [])
     
 
     const ocultarModal = () => {
@@ -46,7 +46,7 @@ const Modal = ({
             return
         }
 
-        guardarGato({nombre, cantidad, categoria})
+        guardarGasto({nombre, cantidad, categoria})
     }
 
   return (
@@ -60,7 +60,7 @@ const Modal = ({
         </div>
 
         <form onSubmit={handleSubmit} className={`formulario ${animarModal ? "animar" : "cerrar"}`}>
-            <legend>Nuevo Gasto</legend>
+            <legend>{gastoEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
 
             {mensaje && 
                 <Mensaje tipo="error">{mensaje}</Mensaje>
